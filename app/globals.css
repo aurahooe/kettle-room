@@ -1,0 +1,203 @@
+:root {
+  --ink: #1c1712;
+  --paper: #f3ead8;
+  --paper-2: #e8dcc4;
+  --rule: #cbbfa6;
+  --ember: #b34a2a;
+  --mute: #6d6254;
+  --cream: #faf6ee;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 12% 0%, rgba(179,74,42,0.07), transparent 42%);
+}
+
+a { color: inherit; }
+
+.wrap { max-width: 920px; margin: 0 auto; padding: 28px 22px 80px; }
+
+header.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 16px;
+  animation: drop .7s ease both;
+}
+
+.mark {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.mark span { color: var(--ember); font-style: italic; }
+
+nav a {
+  margin-left: 18px;
+  font-size: 14px;
+  color: var(--mute);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+nav a:hover { border-bottom-color: var(--ink); color: var(--ink); }
+
+.hour {
+  margin-top: 48px;
+  animation: rise .8s .08s ease both;
+}
+
+.kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(36px, 7vw, 68px);
+  line-height: .95;
+  letter-spacing: -0.035em;
+  margin: 10px 0 18px;
+}
+
+.blurb {
+  max-width: 38rem;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #3a3228;
+}
+
+.grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap: 36px;
+}
+
+@media (max-width: 740px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  padding: 22px 22px 18px;
+  animation: rise .7s ease both;
+}
+
+.card + .card { margin-top: 16px; }
+
+.card h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.meta {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--mute);
+  margin-bottom: 10px;
+}
+
+.body { white-space: pre-wrap; line-height: 1.55; font-size: 16.5px; }
+
+.empty { color: var(--mute); font-style: italic; }
+
+form { display: flex; flex-direction: column; gap: 10px; }
+
+input, textarea, button {
+  font: inherit;
+  border: 1px solid var(--rule);
+  background: #fffdf8;
+  padding: 10px 12px;
+  color: var(--ink);
+}
+
+textarea { min-height: 140px; resize: vertical; }
+
+button {
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  border: none;
+  padding: 11px 14px;
+  transition: transform .15s ease, background .15s ease;
+}
+
+button:hover { transform: translateY(-1px); background: #2a221b; }
+
+button.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+
+label.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--mute);
+}
+
+.err { color: var(--ember); font-size: 14px; }
+
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.slip {
+  border-top: 1px dashed var(--rule);
+  padding-top: 16px;
+  margin-top: 16px;
+  animation: rise .6s ease both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.steam {
+  height: 48px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.steam i {
+  display: inline-block;
+  width: 2px;
+  height: 40px;
+  margin-right: 10px;
+  background: linear-gradient(to top, transparent, rgba(179,74,42,.45));
+  animation: steam 2.4s ease-in-out infinite;
+}
+
+.steam i:nth-child(2) { animation-delay: .4s; height: 32px; }
+.steam i:nth-child(3) { animation-delay: .9s; height: 44px; }
+
+@keyframes steam {
+  0%, 100% { transform: translateY(8px) scaleY(.7); opacity: .2; }
+  50% { transform: translateY(-6px) scaleY(1); opacity: .7; }
+}
